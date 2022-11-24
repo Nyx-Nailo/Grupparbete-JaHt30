@@ -5,29 +5,35 @@ Grupparbete i Html &amp; JavaScript
 Header
 
 Navbar - React Navlink 
+
 Main - React Routes
-footer?
-
-Home()
-
-Resor:
-* lista med resor
-    * välja resa
-    * kontaktuppgifter
-    * checkbox - körkort
-    * övrig komentar
 
 
-SkapaResa:
-* formulär för resor - en gång eller flera
-    * kontaktuppgifter (namn tele mail?)
-    * start och slut
-    * tid och datum för avfärd
-    * lediga platser
-    * checkbox - alergier, packning, djur
-    * ersättning
-    * övrig kommentar
+
+Start sida:
+   * Lista resor och upphämtningar
+   * Visa information från bokningarna
 
 
-listor med önskade resor
-formullär för önskemål
+Boka Resa sida:
+   * Kontakt information
+   * Start / Slut ort
+   * Start tid för resa
+   * Antal lediga platser
+   * Allergier
+   * Ta med djur
+   * Ersättning
+   * Extra chaufför
+   * Upprepande resa
+   
+
+Boka Upphämtning sida:
+   * Kontakt information
+   * Start / Slut ort
+   * Start tid för resa
+   * Antal lediga platser
+   * Allergier
+   * Ta med djur
+   * Ersättning
+   * Extra chaufför
+   * Upprepande resa
