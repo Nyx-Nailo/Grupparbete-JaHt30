@@ -18,14 +18,13 @@ const DivInput = (props) => {
 const BookTravel = () => {
   return (
     <div id='BookTravel'>
-      <h1>Boka resa</h1>
+      <h1>Boka upphämtning</h1>
       <div style={{ width: '400px', display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
         <DivInput forField='firstName' textField='Förnamn:' typeField='text' />
         <DivInput forField='lastName' textField='Efternamn:' typeField='text' />
         <DivInput forField='phoneNr' textField='Telefon nummer:' typeField='tel' />
         <DivInput forField='email' textField='E-post adress:' typeField='email' />
-        <DivInput forField='startCity' textField='Start ort:' typeField='text' />
-        <DivInput forField='endCity' textField='Slut ort:' typeField='text' />
+        <DivInput forField='pickupCity' textField='Upphämtnings ort:' typeField='text' />
         <div>
           <label htmlFor='travelDate'>Datum: </label>
         </div>
