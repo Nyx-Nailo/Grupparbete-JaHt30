@@ -6,14 +6,15 @@
          ". body ."
          ". foot .";
  }
- #App div{
-     grid-area: body;
- }
 
- #App div#header{
+ #header{
      grid-area: head;
  }
  
- #App div#menu{
+ #menu{
      grid-area: menu;
+ }
+
+ #BookTravel{
+     grid-area: body;
  }
