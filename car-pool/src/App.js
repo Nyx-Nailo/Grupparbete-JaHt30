@@ -4,12 +4,12 @@ import {Header, Menu } from './Components/Menu.js'
 
 function App() {
     return (
-        <div>
+        <div id="App">
             <Header />
             <Router>
                 <Menu />
                 <Routes>
-                    <Route exact path="/" element={<Header />} />
+                    <Route exact path="/" element={<div>home</div>} />
                     <Route exact path="/1" element={<Header />} />
                     <Route exact path="/2" element={<Header />} />
                 </Routes>
