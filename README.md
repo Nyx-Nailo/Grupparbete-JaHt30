@@ -29,9 +29,9 @@ Boka Resa sida:
 
 Boka Upphämtning sida:
    * Kontakt information
-   * Start / Slut ort
+   * Upphämtnings ort
    * Start tid för resa
-   * Antal lediga platser
+   * Hur många ska åka med
    * Allergier
    * Ta med djur
    * Ersättning
