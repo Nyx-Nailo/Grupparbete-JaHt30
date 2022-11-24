@@ -104,13 +104,13 @@ export const inputs = [
     name: 'moretravelsdatestart',
     type: 'datetime-local',
     label: 'Datum för avgång',
-    class: 'hide',
+    className: 'hide',
   },
   {
     id: 14,
     name: 'moretravelsdateend',
     type: 'date',
     label: 'Datum för sista dagen',
-    class: 'hide',
+    className: 'hide',
   },
 ];
