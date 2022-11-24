@@ -43,7 +43,7 @@ const BookTravel = () => {
 
   return (
     <div id='BookTravel'>
-      <h1>Boka upphämtning</h1>
+      <h1>Boka resa</h1>
       <form onSubmit={handleSubmit}>
         <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gridColumnGap: '15px', gridRowGap: '5px' }}>
           {inputs.map((input) => (
