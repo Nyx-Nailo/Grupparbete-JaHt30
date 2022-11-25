@@ -1,7 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import { Header, Menu } from './Components/Menu.js'
-import BookTravel from './Pages/BookTravel.js'
+import { Header, Menu } from './Components/Menu.js';
+import BookTravel from './Pages/BookTravel.js';
+import Layout from './Pages/Layout.js';
 
 function App() {
     return (
@@ -10,9 +11,11 @@ function App() {
             <Router>
                 <Menu />
                 <Routes>
-                    <Route exact path="/" element={<div>home</div>} />
-                    <Route exact path="/1" element={<BookTravel />} />
-                    <Route exact path="/2" element={<Header />} />
+                    <Route path="/" element={<Layout />}>
+                        <Route index element={<div>home</div>} />
+                        <Route path="/1" element={<BookTravel />} />
+                        <Route path="/2" element={<Header />} />
+                    </ Route>
                 </Routes>
             </Router>
         </div>

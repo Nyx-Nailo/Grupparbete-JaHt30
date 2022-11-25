@@ -17,7 +17,7 @@ const TrInput = (props) => {
 
 const BookTravel = () => {
   return (
-    <div id="BookTravel">
+    <div>
       <h1>Boka resa</h1>
       <div style={{ width: '400px', display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
         <TrInput forField='firstName' textField='Förnamn:' typeField='text' />
