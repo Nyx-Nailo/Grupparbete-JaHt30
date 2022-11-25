@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import FormInput from '../Components/Form/FormInput';
-import { inputs } from '../Components/Form/FormInputBookTravel';
+import { inputs } from '../Components/Form/FormInputBookPickup';
 
-const BookTravel = () => {
+const BookPickup = () => {
   const [values, setValues] = useState({
     firstname: '',
     lastname: '',
@@ -23,12 +23,12 @@ const BookTravel = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (localStorage.getItem('travel')?.length) {
-      const oldValues = JSON.parse(localStorage.getItem('travel'));
+    if (localStorage.getItem('pickups')?.length) {
+      const oldValues = JSON.parse(localStorage.getItem('pickups'));
       const newValues = [...oldValues, values];
-      localStorage.setItem('travel', JSON.stringify(newValues));
+      localStorage.setItem('pickups', JSON.stringify(newValues));
     } else {
-      localStorage.setItem('travel', JSON.stringify([values]));
+      localStorage.setItem('pickups', JSON.stringify([values]));
     }
     window.location = '/';
   };
@@ -43,7 +43,7 @@ const BookTravel = () => {
 
   return (
     <div id='BookTravel'>
-      <h1>Boka resa</h1>
+      <h1>Boka upphämtning</h1>
       <form onSubmit={handleSubmit}>
         <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gridColumnGap: '15px', gridRowGap: '5px' }}>
           {inputs.map((input) => (
@@ -64,4 +64,4 @@ const BookTravel = () => {
   );
 };
 
-export default BookTravel;
+export default BookPickup;
