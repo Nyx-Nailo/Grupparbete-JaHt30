@@ -1,3 +1,5 @@
+let currentDate = new Date().toJSON().slice(0, 16);
+
 export const inputs = [
   {
     id: 1,
@@ -59,6 +61,7 @@ export const inputs = [
     type: 'datetime-local',
     label: 'Datum för resa',
     required: true,
+    min: currentDate,
   },
   {
     id: 8,
@@ -67,7 +70,6 @@ export const inputs = [
     placeholder: 'Allergier',
     label: 'Allergier',
     pattern: '^[A-ZÅÄÖa-zåäö]+',
-    required: true,
   },
   {
     id: 9,
@@ -75,7 +77,6 @@ export const inputs = [
     type: 'checkbox',
     placeholder: 'Djur',
     label: 'Djur med på resa',
-    required: true,
   },
   {
     id: 10,
@@ -83,21 +84,18 @@ export const inputs = [
     type: 'checkbox',
     placeholder: '',
     label: 'Ersättning',
-    required: true,
   },
   {
     id: 11,
     name: 'extradriver',
     type: 'checkbox',
     label: 'Kan du köra en del av sträckan',
-    required: true,
   },
   {
     id: 12,
     name: 'moretravels',
     type: 'checkbox',
     label: 'Upprepande resa',
-    required: true,
   },
   {
     id: 13,
@@ -105,6 +103,7 @@ export const inputs = [
     type: 'datetime-local',
     label: 'Datum för avgång',
     className: 'hide',
+    min: currentDate,
   },
   {
     id: 14,
