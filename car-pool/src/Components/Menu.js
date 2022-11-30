@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 function Header(props) {
   return (
     <div id='header'>
-      <h1>Title</h1>
+      <h1>CarPool</h1>
     </div>
   );
 }
