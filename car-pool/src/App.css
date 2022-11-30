@@ -5,14 +5,18 @@
          ". menu ."
          ". body ."
          ". foot .";
+         color: rgb(255, 255, 255);
  }
 
  #header{
      grid-area: head;
+     text-align: center;
+     color: #fff;
  }
  
  #menu{
      grid-area: menu;
+     text-align: center;
  }
 
  #Main{
