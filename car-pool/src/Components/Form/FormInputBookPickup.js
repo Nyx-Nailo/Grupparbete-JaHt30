@@ -1,3 +1,5 @@
+let currentDate = new Date().toJSON().slice(0, 16);
+
 export const inputs = [
   {
     id: 1,
@@ -50,6 +52,7 @@ export const inputs = [
     type: 'datetime-local',
     label: 'Datum för resa',
     required: true,
+    min: currentDate,
   },
   {
     id: 7,
@@ -91,6 +94,7 @@ export const inputs = [
     type: 'datetime-local',
     label: 'Datum för avgång',
     className: 'hide',
+    min: currentDate,
   },
   {
     id: 13,
