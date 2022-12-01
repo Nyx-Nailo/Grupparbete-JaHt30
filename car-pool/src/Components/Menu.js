@@ -21,10 +21,10 @@ function Menu() {
         <button>Boka upphämtning</button>
       </NavLink>
       <NavLink to='/3'>
-        <button>Bokade resor</button>
+        <button>Lista resor</button>
       </NavLink>
       <NavLink to='/4'>
-        <button>Bokade upphämtningar</button>
+        <button>Lista upphämtningar</button>
       </NavLink>
     </div>
   );
