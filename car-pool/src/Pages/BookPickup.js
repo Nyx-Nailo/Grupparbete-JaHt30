@@ -44,6 +44,8 @@ const BookPickup = () => {
     display: 'none',
   };
 
+  let endDate = currentDate.slice(0, 10);
+
   const useToggle = (initialState) => {
     const [toggleValue, setToggleValue] = useState(initialState);
 
@@ -51,13 +53,18 @@ const BookPickup = () => {
       setToggleValue(!toggleValue);
     };
 
+    endDate = values.moretravelsdatestart.slice(0, 10);
+
     return [toggleValue, toggler];
   };
 
   const [toggle, setToggle] = useToggle();
 
+  let field = false;
+
   if (toggle) {
     divHide = {};
+    field = true;
   }
 
   return (
@@ -135,13 +142,13 @@ const BookPickup = () => {
             <label htmlFor='moretravelsdatestart'>Datum för avgång</label>
           </div>
           <div style={divHide}>
-            <input type='datetime-local' name='moretravelsdatestart' min={currentDate} required onChange={onChange} />
+            <input type='datetime-local' name='moretravelsdatestart' min={currentDate} required={field} onChange={onChange} />
           </div>
           <div style={divHide}>
             <label htmlFor='moretravelsdateend'>Datum för sista dagen</label>
           </div>
           <div style={divHide}>
-            <input type='date' name='moretravelsdateend' min={currentDate.slice(0, 10)} required onChange={onChange} />
+            <input type='date' name='moretravelsdateend' required={field} min={endDate} onChange={onChange} />
           </div>
           <div>
             <label>Övrig information</label>
