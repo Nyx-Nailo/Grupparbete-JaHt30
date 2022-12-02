@@ -13,7 +13,7 @@ function App() {
         <Menu />
         <Routes>
           <Route path='/' element={<Layout />}>
-            <Route index element={<div>home</div>} />
+            <Route index element={<div>Välkommen</div>} />
             <Route path='/1' element={<BookTravel />} />
             <Route path='/2' element={<BookPickup />} />
           </Route>

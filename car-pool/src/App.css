@@ -18,6 +18,9 @@
      grid-area: menu;
      text-align: center;
  }
+ #menu button:hover{
+    background-color: rgb(122, 125, 125);
+ }
 
  #Main{
      grid-area: body;
