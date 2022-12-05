@@ -1,12 +1,27 @@
-
+import { useState } from "react"
+import { json } from "react-router-dom"
 
 function ListBookPickup({storageItem}) 
 {
 
-    const list = eval(localStorage.getItem(storageItem))
+    var list = JSON.parse(localStorage.getItem(storageItem))
+
+    const [stateList, setUpdateList] = useState(list)
 
     const List = (props) => 
     {
+
+        const RemoveList = (num) => 
+    {
+
+        
+        if (window.confirm("Vill du boka " + (storageItem === "travel" ? "Resa " : "Upphämtning ") + (num + 1)))
+        {
+            stateList.splice(num,1)
+            localStorage.setItem(storageItem,JSON.stringify(stateList))
+            setUpdateList(JSON.parse(localStorage.getItem(storageItem)))
+        }
+    }
 
         const Li = (props) => 
         {
@@ -17,10 +32,11 @@ function ListBookPickup({storageItem})
         <>
             <br></br>
             <br></br>
-            <h3>hej</h3>
+            <h3>{storageItem === "travel" ? "Resa " : "Upphämtning "} {props.num + 1}</h3>
             <ul>
-                {Object.values(props.booking).map((item) => {return <Li item={item}/>})} 
+                {Object.values(props.booking).map((item,index) => {return <Li item={item} key={Object.keys(props.booking)[index] + props.num}/>})} 
             </ul>
+            <a style={{cursor: "pointer"}} onClick={() => {RemoveList(props.num)}} >Boka</a>
         </>
         )
     }
@@ -30,9 +46,10 @@ function ListBookPickup({storageItem})
         return <h1>Det finns inga bokade {storageItem === "travel" ? "resor" : "uphämtningar" }</h1>
     }
 
+
     return (
         <div>
-            {localStorage.getItem(storageItem) !== null ? list.map((listItem) => {return <List booking={listItem}/>}) : <Empty/>}
+            {localStorage.getItem(storageItem) !== null ? stateList.map((listItem,index) => {return <List booking={listItem} num={index} key={listItem + index} />}) : <Empty/>}
         </div>
     )
 }
