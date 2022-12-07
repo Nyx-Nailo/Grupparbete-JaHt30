@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 function Header(props) {
@@ -9,24 +10,65 @@ function Header(props) {
 }
 
 function Menu() {
+  const [show, setShow] = useState(false);
+
   return (
-    <div id='menu'>
-      <NavLink to='/'>
-        <button>Home</button>
-      </NavLink>
-      <NavLink to='/1'>
-        <button>Boka resa</button>
-      </NavLink>
-      <NavLink to='/2'>
-        <button>Boka upphämtning</button>
-      </NavLink>
-      <NavLink to='/3'>
-        <button>Lista resor</button>
-      </NavLink>
-      <NavLink to='/4'>
-        <button>Lista upphämtningar</button>
-      </NavLink>
-    </div>
+    <>
+      <div id='dropdown'>
+        <button
+          onClick={() => {
+            setShow(!show);
+          }}>
+          Meny
+        </button>
+        {show && (
+          <div id='myDropdown' className='dropdown-content'>
+            <NavLink
+              to='/'
+              onClick={() => {
+                setShow(!show);
+              }}>
+              Startsida
+            </NavLink>
+            <NavLink
+              to='/1'
+              onClick={() => {
+                setShow(!show);
+              }}>
+              Boka resa
+            </NavLink>
+            <NavLink
+              to='/2'
+              onClick={() => {
+                setShow(!show);
+              }}>
+              Boka upphämtning
+            </NavLink>
+            <NavLink
+              to='/3'
+              onClick={() => {
+                setShow(!show);
+              }}>
+              Lista resor
+            </NavLink>
+            <NavLink
+              to='/4'
+              onClick={() => {
+                setShow(!show);
+              }}>
+              Lista upphämtningar
+            </NavLink>
+          </div>
+        )}
+      </div>
+      <div id='menu'>
+        <NavLink to='/'>Startsida</NavLink>
+        <NavLink to='/1'>Boka resa</NavLink>
+        <NavLink to='/2'>Boka upphämtning</NavLink>
+        <NavLink to='/3'>Lista resor</NavLink>
+        <NavLink to='/4'>Lista upphämtningar</NavLink>
+      </div>
+    </>
   );
 }
 
