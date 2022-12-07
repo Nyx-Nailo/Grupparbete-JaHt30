@@ -27,14 +27,14 @@ function ListBookPickup({storageItem})
 
         const Li = (props) => 
         {
-            return <>{props.booking !== "" && <li>{props.formField + ": " + props.value}</li> }</>
+            return <>{props.value !== "" && <li>{props.formField + ": " + props.value}</li> }</>
         }
 
         return (
         <div>
             <h3>{storageItem === "travel" ? "Resa " : "Upphämtning "} {props.num + 1}</h3>
             <ul>
-                {Object.keys(props.booking).map((keyValue,index) => {return <Li formField={formFields[keyValue]} value={props.booking[keyValue]} key={Object.keys(props.booking)[index] + props.num}/>})} 
+                {Object.keys(props.booking).map((keyValue,index) => {return <Li formField={formFields[keyValue]} value={keyValue === "moretravelsdatestart" || keyValue === "traveldate" ? props.booking[keyValue].replace("T"," ") : props.booking[keyValue]} key={Object.keys(props.booking)[index] + props.num}/>})} 
             </ul>
             <a style={{cursor: "pointer"}} onClick={() => {RemoveList(props.num)}} >Boka</a>
         </div>
