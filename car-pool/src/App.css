@@ -5,16 +5,31 @@
          ". menu ."
          ". body ."
          ". foot .";
+         color: rgb(255, 255, 255);
  }
 
  #header{
      grid-area: head;
+     text-align: center;
+     color: #fff;
  }
  
  #menu{
      grid-area: menu;
+     text-align: center;
+ }
+ #menu button:hover{
+    background-color: rgb(122, 125, 125);
  }
 
  #Main{
      grid-area: body;
+ }
+ body{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/Carpool.png);
+    background-position: center;
+    background-size:cover;
+    position: relative;
  }
