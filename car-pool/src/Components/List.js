@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { json } from "react-router-dom"
 
 function ListBookPickup({storageItem}) 
 {
@@ -7,6 +6,8 @@ function ListBookPickup({storageItem})
     var list = JSON.parse(localStorage.getItem(storageItem))
 
     const [stateList, setUpdateList] = useState(list)
+
+    const formFields = {"firstname":"Förnamn","lastname":"Efternamn","phonenr":"Mobil nummer","email":"E-post adress","traveldate":"Datum för resa","allergy":"Allergier","animal":"Djur med på resa","payment":"Ersättning","extradriver":"Kan du vara chaufför","moretravels":"Upprepande resa","moretravelsdatestart":"Datum för avgång","moretravelsdateend":"Datum för sista dagen","startcity":"Utgångs ort","endcity":"Ankomst ort","pickupcity":"Upphämtnings ort"}
 
     const List = (props) => 
     {
@@ -25,7 +26,7 @@ function ListBookPickup({storageItem})
 
         const Li = (props) => 
         {
-            return <li>{props.item.toString()}</li>
+            return <>{props.booking !== "" && <li>{props.formField + ": " + props.value}</li> }</>
         }
 
         return (
@@ -34,7 +35,7 @@ function ListBookPickup({storageItem})
             <br></br>
             <h3>{storageItem === "travel" ? "Resa " : "Upphämtning "} {props.num + 1}</h3>
             <ul>
-                {Object.values(props.booking).map((item,index) => {return <Li item={item} key={Object.keys(props.booking)[index] + props.num}/>})} 
+                {Object.keys(props.booking).map((keyValue,index) => {return <Li formField={formFields[keyValue]} value={props.booking[keyValue]} key={Object.keys(props.booking)[index] + props.num}/>})} 
             </ul>
             <a style={{cursor: "pointer"}} onClick={() => {RemoveList(props.num)}} >Boka</a>
         </>
