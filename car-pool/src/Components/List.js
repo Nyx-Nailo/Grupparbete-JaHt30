@@ -8,7 +8,7 @@ function ListBookPickup({storageItem})
 
     const [stateList, setUpdateList] = useState(list)
 
-    const formFields = {"firstname":"Förnamn","lastname":"Efternamn","phonenr":"Mobil nummer","email":"E-post adress","traveldate":"Datum för resa","allergy":"Allergier","animal":"Djur med på resa","payment":"Ersättning","extradriver":"Kan du vara chaufför","moretravels":"Upprepande resa","moretravelsdatestart":"Datum för avgång","moretravelsdateend":"Datum för sista dagen","startcity":"Utgångs ort","endcity":"Ankomst ort","pickupcity":"Upphämtnings ort"}
+    const formFields = {"firstname":"Förnamn","lastname":"Efternamn","phonenr":"Mobil nummer","email":"E-post adress","traveldate":"Datum för resa","allergy":"Allergier","animal":"Djur med på resa","payment":"Ersättning","extradriver":"Kan du vara chaufför","moretravels":"Upprepande resa","moretravelsdatestart":"Datum för avgång","moretravelsdateend":"Datum för sista dagen","startcity":"Utgångs ort","endcity":"Ankomst ort","pickupcity":"Upphämtnings ort","misc":"Övrig information"}
 
     const List = (props) => 
     {
@@ -34,7 +34,7 @@ function ListBookPickup({storageItem})
         <div>
             <h3>{storageItem === "travel" ? "Resa " : "Upphämtning "} {props.num + 1}</h3>
             <ul>
-                {Object.keys(props.booking).map((keyValue,index) => {return <Li formField={formFields[keyValue]} value={keyValue === "moretravelsdatestart" || keyValue === "traveldate" ? props.booking[keyValue].replace("T"," ") : props.booking[keyValue]} key={Object.keys(props.booking)[index] + props.num}/>})} 
+                {Object.keys(props.booking).map((keyValue,index) => {return <Li formField={formFields[keyValue]} value={keyValue === "moretravelsdatestart" || keyValue === "traveldate" ? props.booking[keyValue].replace("T"," ") : props.booking[keyValue].toString()} key={Object.keys(props.booking)[index] + props.num}/>})} 
             </ul>
             <a style={{cursor: "pointer"}} onClick={() => {RemoveList(props.num)}} >Boka</a>
         </div>
