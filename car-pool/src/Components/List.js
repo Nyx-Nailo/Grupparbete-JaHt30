@@ -27,7 +27,7 @@ function ListBookPickup({storageItem})
 
         const Li = (props) => 
         {
-            return <>{props.value !== "" && <li>{props.formField + ": " + props.value}</li> }</>
+            return <>{props.value !== "" && <li>{props.formField + ": " + (props.value == "true" ? "Ja" : props.value)}</li> }</>
         }
 
         return (
