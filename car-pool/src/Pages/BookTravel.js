@@ -16,6 +16,7 @@ const BookTravel = () => {
     moretravels: '',
     moretravelsdatestart: '',
     moretravelsdateend: '',
+    misc: '',
   });
 
   const handleSubmit = (e) => {

@@ -15,6 +15,7 @@ const BookPickup = () => {
     moretravels: '',
     moretravelsdatestart: '',
     moretravelsdateend: '',
+    misc: '',
   });
 
   const handleSubmit = (e) => {
