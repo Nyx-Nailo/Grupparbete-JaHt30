@@ -29,7 +29,7 @@ const BookPickup = () => {
     } else {
       localStorage.setItem('pickups', JSON.stringify([values]));
     }
-    window.location = '/4';
+      window.location = '/lista-upphamtningar';
   };
 
   const onChange = (e) => {
@@ -97,7 +97,7 @@ const BookPickup = () => {
               type='text'
               placeholder='Förnamn'
               name='firstname'
-              pattern='^[A-ZÅÄÖa-zåäö]+'
+              pattern="\b([A-ÖÀ-ÿ][-,a-ö. ']+[ ]*)"
               required
               onChange={onChange}
             />
@@ -110,7 +110,7 @@ const BookPickup = () => {
               type='text'
               placeholder='Efternamn'
               name='lastname'
-              pattern='^[A-ZÅÄÖa-zåäö]+'
+              pattern="\b([A-ÖÀ-ÿ][-,a-ö. ']+[ ]*)"
               required
               onChange={onChange}
             />
@@ -124,6 +124,7 @@ const BookPickup = () => {
               placeholder='070-1234567'
               name='phonenr'
               pattern='[0-9]{3}-[0-9]{7}'
+              title='070-1234567'
               required
               onChange={onChange}
             />
