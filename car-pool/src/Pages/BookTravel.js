@@ -29,7 +29,7 @@ const BookTravel = () => {
     } else {
       localStorage.setItem('travel', JSON.stringify([values]));
     }
-    window.location = '/3';
+      window.location = '/lista-resor';
   };
 
   const onChange = (e) => {

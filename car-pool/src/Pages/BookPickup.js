@@ -29,7 +29,7 @@ const BookPickup = () => {
     } else {
       localStorage.setItem('pickups', JSON.stringify([values]));
     }
-    window.location = '/4';
+      window.location = '/lista-upphamtningar';
   };
 
   const onChange = (e) => {
