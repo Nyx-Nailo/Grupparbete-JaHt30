@@ -76,16 +76,23 @@ div#root {
   grid-area: body;
   font-size: 1rem;
   padding: 0.4rem;
+
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.2);
+
+  border-radius: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 #Main h1 {
   margin-bottom: 1rem;
 }
-#Main > div > p {
+#Main > div > p:not(:last-child) {
   margin-bottom: 1rem;
 }
 
 #Main button {
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
 }
 input,
 textarea {
@@ -117,15 +124,25 @@ div#Main > div > div > button {
   border-radius: 0.2rem;
   border: 1px solid #fff;
 }
-div#Main > div > div > ul {
+div#Main > div > div > div#listGrid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 0.2rem;
   list-style: none;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 0.2rem;
   padding: 0.5rem;
+  text-shadow: 1px 1px 0 #000;
 }
-div#Main > div > div > ul > li {
-  padding: 0.1rem;
+div#Main > div > div > div#listGrid > div:nth-child(odd) {
+  font-weight: bold;
+}
+div#Main > div > div > div#listGrid > div:nth-child(even) {
+  padding: 0.2rem;
+}
+div#Main > div > div > div#listGrid > div.listOrange {
+  color: orange;
 }
 
 @media (width < 900px) {

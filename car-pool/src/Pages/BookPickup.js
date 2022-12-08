@@ -7,6 +7,7 @@ const BookPickup = () => {
     phonenr: '',
     email: '',
     pickupcity: '',
+    endcity: '',
     traveldate: '',
     allergy: '',
     animal: '',
@@ -28,7 +29,7 @@ const BookPickup = () => {
     } else {
       localStorage.setItem('pickups', JSON.stringify([values]));
     }
-    window.location = '/';
+    window.location = '/4';
   };
 
   const onChange = (e) => {
@@ -36,6 +37,15 @@ const BookPickup = () => {
       setValues({ ...values, [e.target.name]: e.target.checked });
     } else {
       setValues({ ...values, [e.target.name]: e.target.value });
+    }
+
+    if (e.target.name === 'traveldate') {
+      values.moretravelsdatestart = e.target.value;
+    }
+
+    if (e.target.name === 'moretravelsdatestart') {
+      values.moretravelsdateend = e.target.value;
+      console.log(e.target.value);
     }
   };
 
@@ -45,7 +55,9 @@ const BookPickup = () => {
     display: 'none',
   };
 
-  let endDate = currentDate.slice(0, 10);
+  if (values.traveldate === '') {
+    values.traveldate = currentDate;
+  }
 
   const useToggle = (initialState) => {
     const [toggleValue, setToggleValue] = useState(initialState);
@@ -53,8 +65,6 @@ const BookPickup = () => {
     const toggler = () => {
       setToggleValue(!toggleValue);
     };
-
-    endDate = values.moretravelsdatestart.slice(0, 10);
 
     return [toggleValue, toggler];
   };
@@ -72,42 +82,103 @@ const BookPickup = () => {
     <div id='BookTravel'>
       <h1>Boka upphämtning</h1>
       <form onSubmit={handleSubmit}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gridColumnGap: '15px', gridRowGap: '5px' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'auto 1fr',
+            gridColumnGap: '15px',
+            gridRowGap: '5px',
+          }}>
           <div>
             <label htmlFor='firstname'>Förnamn</label>
           </div>
           <div>
-            <input type='text' placeholder='Förnamn' name='firstname' pattern='^[A-ZÅÄÖa-zåäö]+' required onChange={onChange} />
+            <input
+              type='text'
+              placeholder='Förnamn'
+              name='firstname'
+              pattern='^[A-ZÅÄÖa-zåäö]+'
+              required
+              onChange={onChange}
+            />
           </div>
           <div>
             <label htmlFor='lastname'>Efternamn</label>
           </div>
           <div>
-            <input type='text' placeholder='Efternamn' name='lastname' pattern='^[A-ZÅÄÖa-zåäö]+' required onChange={onChange} />
+            <input
+              type='text'
+              placeholder='Efternamn'
+              name='lastname'
+              pattern='^[A-ZÅÄÖa-zåäö]+'
+              required
+              onChange={onChange}
+            />
           </div>
           <div>
             <label htmlFor='phonenr'>Mobil nummer</label>
           </div>
           <div>
-            <input type='tel' placeholder='070-1234567' name='phonenr' pattern='[0-9]{3}-[0-9]{7}' required onChange={onChange} />
+            <input
+              type='tel'
+              placeholder='070-1234567'
+              name='phonenr'
+              pattern='[0-9]{3}-[0-9]{7}'
+              required
+              onChange={onChange}
+            />
           </div>
           <div>
             <label htmlFor='email'>E-post adress</label>
           </div>
           <div>
-            <input type='email' placeholder='email@domän.se' name='email' pattern='[A-ZÅÄÖa-zåäö0-9._%+-]+@[A-ZÅÄÖa-zåäö0-9.-]+.[A-ZÅÄÖa-zåäö]{2,}$' required onChange={onChange} />
+            <input
+              type='email'
+              placeholder='email@domän.se'
+              name='email'
+              pattern='[A-ZÅÄÖa-zåäö0-9._%+-]+@[A-ZÅÄÖa-zåäö0-9.-]+.[A-ZÅÄÖa-zåäö]{2,}$'
+              required
+              onChange={onChange}
+            />
           </div>
           <div>
             <label htmlFor='pickupcity'>Upphämtnings ort</label>
           </div>
           <div>
-            <input type='text' placeholder='Upphämtnings ort' name='pickupcity' pattern='^[A-ZÅÄÖa-zåäö]+' required onChange={onChange} />
+            <input
+              type='text'
+              placeholder='Upphämtnings ort'
+              name='pickupcity'
+              pattern='^[A-ZÅÄÖa-zåäö]+'
+              required
+              onChange={onChange}
+            />
+          </div>
+          <div>
+            <label htmlFor='endcity'>Ankomst ort</label>
+          </div>
+          <div>
+            <input
+              type='text'
+              placeholder='Ankomst ort'
+              name='endcity'
+              pattern='^[A-ZÅÄÖa-zåäö]+'
+              required
+              onChange={onChange}
+            />
           </div>
           <div>
             <label htmlFor='traveldate'>Datum för resa</label>
           </div>
           <div>
-            <input type='datetime-local' name='traveldate' min={currentDate} required onChange={onChange} />
+            <input
+              type='datetime-local'
+              name='traveldate'
+              value={values.traveldate}
+              min={currentDate}
+              required
+              onChange={onChange}
+            />
           </div>
           <div>
             <label htmlFor='allergy'>Allergier?</label>
@@ -143,19 +214,35 @@ const BookPickup = () => {
             <label htmlFor='moretravelsdatestart'>Datum för avgång</label>
           </div>
           <div style={divHide}>
-            <input type='datetime-local' name='moretravelsdatestart' min={currentDate} required={field} onChange={onChange} />
+            <input
+              type='datetime-local'
+              name='moretravelsdatestart'
+              min={values.traveldate}
+              required={field}
+              onChange={onChange}
+            />
           </div>
           <div style={divHide}>
             <label htmlFor='moretravelsdateend'>Datum för sista dagen</label>
           </div>
           <div style={divHide}>
-            <input type='date' name='moretravelsdateend' required={field} min={endDate} onChange={onChange} />
+            <input
+              type='date'
+              name='moretravelsdateend'
+              min={values.moretravelsdatestart.slice(0, 10)}
+              required={field}
+              onChange={onChange}
+            />
           </div>
           <div>
             <label>Övrig information</label>
           </div>
           <div>
-            <textarea name='misc' rows='5' placeholder='Pauser, åksjuk etc...'></textarea>
+            <textarea
+              name='misc'
+              rows='5'
+              placeholder='Pauser, åksjuk etc...'
+              onChange={onChange}></textarea>
           </div>
           <div>
             <button>Boka</button>
