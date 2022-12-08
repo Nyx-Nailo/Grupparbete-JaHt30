@@ -34,10 +34,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Main />} />
-            <Route path='/1' element={<BookTravel />} />
-            <Route path='/2' element={<BookPickup />} />
-            <Route path='/3' element={<ListBookTravel />} />
-            <Route path='/4' element={<ListBookPickup />} />
+            <Route path='/boka-resa' element={<BookTravel />} />
+            <Route path='/boka-upphamtning' element={<BookPickup />} />
+            <Route path='/lista-resor' element={<ListBookTravel />} />
+            <Route path='/lista-upphamtningar' element={<ListBookPickup />} />
           </Route>
         </Routes>
       </Router>

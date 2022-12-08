@@ -31,28 +31,28 @@ function Menu() {
               Startsida
             </NavLink>
             <NavLink
-              to='/1'
+              to='/boka-resa'
               onClick={() => {
                 setShow(!show);
               }}>
               Boka resa
             </NavLink>
             <NavLink
-              to='/2'
+              to='/boka-upphamtning'
               onClick={() => {
                 setShow(!show);
               }}>
               Boka upphämtning
             </NavLink>
             <NavLink
-              to='/3'
+              to='/lista-resor'
               onClick={() => {
                 setShow(!show);
               }}>
               Lista resor
             </NavLink>
             <NavLink
-              to='/4'
+              to='/lista-upphamtningar'
               onClick={() => {
                 setShow(!show);
               }}>
@@ -63,10 +63,10 @@ function Menu() {
       </div>
       <div id='menu'>
         <NavLink to='/'>Startsida</NavLink>
-        <NavLink to='/1'>Boka resa</NavLink>
-        <NavLink to='/2'>Boka upphämtning</NavLink>
-        <NavLink to='/3'>Lista resor</NavLink>
-        <NavLink to='/4'>Lista upphämtningar</NavLink>
+        <NavLink to='/boka-resa'>Boka resa</NavLink>
+        <NavLink to='/boka-upphamtning'>Boka upphämtning</NavLink>
+        <NavLink to='/lista-resor'>Lista resor</NavLink>
+        <NavLink to='/lista-upphamtningar'>Lista upphämtningar</NavLink>
       </div>
     </>
   );
