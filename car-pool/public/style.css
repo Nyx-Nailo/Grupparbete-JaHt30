@@ -13,6 +13,8 @@ body {
   background-size: cover;
   position: relative;
   font-size: 62.5%;
+  padding: 0.5rem;
+  overflow-y: scroll;
 }
 
 div#root {
@@ -24,7 +26,7 @@ div#root {
   justify-content: center;
 }
 
-#App {
+div#App {
   display: grid;
   grid-template-areas:
     'head'
@@ -35,26 +37,26 @@ div#root {
   width: 60vw;
 }
 
-#header {
+div#header {
   grid-area: head;
   text-align: center;
   color: #fff;
 }
-#header > h1 {
+div#header > h1 {
   font-size: 3rem;
 }
 
-#menu,
-#dropdown {
+div#menu,
+div#dropdown {
   grid-area: menu;
   text-align: center;
   margin: 1rem 0;
   font-size: 1rem;
 }
-#dropdown {
+div#dropdown {
   text-align: left;
 }
-#menu > a {
+div#menu > a {
   background-color: transparent;
   color: #fff;
   font-size: 1rem;
@@ -62,20 +64,20 @@ div#root {
   border: none;
   text-decoration: none;
 }
-#menu > a:hover {
+div#menu > a:hover {
   text-decoration: underline;
 }
-#menu > a:first-child {
+div#menu > a:first-child {
   padding-left: 0;
 }
-#menu > a:last-child {
+div#menu > a:last-child {
   padding-right: 0;
 }
 
-#Main {
+div#Main {
   grid-area: body;
   font-size: 1rem;
-  padding: 0.4rem;
+  padding: 1rem;
 
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
@@ -84,18 +86,18 @@ div#root {
   border-radius: 0.3rem;
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
-#Main h1 {
+div#Main h1 {
   margin-bottom: 1rem;
 }
-#Main > div > p:not(:last-child) {
+div#Main > div > p:not(:last-child) {
   margin-bottom: 1rem;
 }
 
-#Main button {
+div#Main button {
   padding: 0.5rem 2rem;
 }
-input,
-textarea {
+div#Main > div#BookTravel input,
+div#Main > div#BookTravel textarea {
   padding: 0.5rem;
   border: none;
   border: 0.1rem solid #fff;
@@ -103,28 +105,26 @@ textarea {
   border-radius: 0.2rem;
   margin-bottom: 0.25rem;
 }
-input[type='checkbox'] {
-  width: 5%;
+div#Main > div#BookTravel input[type='checkbox'] {
+  width: 3rem;
 }
 
-div#Main > div > div {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
+div#Main > div#listing > div {
+  margin-bottom: 2rem;
 }
-div#Main > div > div:last-child {
-  margin-bottom: 1rem;
-  padding-bottom: 0;
+div#Main > div#listing > div:last-child {
+  margin-bottom: 0;
 }
-div#Main > div > div > h3 {
+div#Main > div#listing > div > h3 {
   font-size: 2rem;
 }
-div#Main > div > div > button {
-  margin-top: 1rem;
+div#Main > div#listing > div > button {
+  margin-top: 0.3rem;
   padding: 0.5rem 2rem;
   border-radius: 0.2rem;
   border: 1px solid #fff;
 }
-div#Main > div > div > div#listGrid {
+div#Main > div#listing > div > div#listGrid {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 0.2rem;
@@ -135,17 +135,30 @@ div#Main > div > div > div#listGrid {
   padding: 0.5rem;
   text-shadow: 1px 1px 0 #000;
 }
-div#Main > div > div > div#listGrid > div:nth-child(odd) {
+div#Main > div#listing > div > div#listGrid > div:nth-child(odd) {
   font-weight: bold;
 }
-div#Main > div > div > div#listGrid > div:nth-child(even) {
+div#Main > div#listing > div > div#listGrid > div:nth-child(even) {
   padding: 0.2rem;
 }
-div#Main > div > div > div#listGrid > div.listOrange {
+div#Main > div#listing > div > div#listGrid > div.listOrange {
   color: orange;
+}
+div#Main > div#BookTravel > form > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 5px;
 }
 
 @media (width < 900px) {
+  div#Main > div#listing > div > div#listGrid,
+  div#Main > div#BookTravel > form > div {
+    display: block;
+  }
+  div#Main > div#listing > div > div#listGrid > div:nth-child(even) {
+    margin-bottom: 0.5rem;
+  }
   div#menu {
     display: none;
   }
@@ -200,7 +213,7 @@ div#Main > div > div > div#listGrid > div.listOrange {
     background-color: #ddd;
   }
 
-  #App {
+  div#App {
     width: 98vw;
   }
 }

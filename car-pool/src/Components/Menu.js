@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-function Header(props) {
+function Header() {
   return (
     <div id='header'>
       <h1>CarPool</h1>
@@ -9,8 +9,28 @@ function Header(props) {
   );
 }
 
+function ListMenu({ items }) {
+  return (
+    <>
+      {items.map((item, index) => (
+        <NavLink key={index} to={item.url}>
+          {item.label}
+        </NavLink>
+      ))}
+    </>
+  );
+}
+
 function Menu() {
   const [show, setShow] = useState(false);
+
+  const pages = [
+    { label: 'Startsida', url: '/' },
+    { label: 'Boka resa', url: '/boka-resa' },
+    { label: 'Boka upphämtning', url: '/boka-upphamtning' },
+    { label: 'Lista resor', url: '/lista-resor' },
+    { label: 'Lista upphämtningar', url: '/lista-upphamtningar' },
+  ];
 
   return (
     <>
@@ -22,51 +42,18 @@ function Menu() {
           Meny
         </button>
         {show && (
-          <div id='myDropdown' className='dropdown-content'>
-            <NavLink
-              to='/'
-              onClick={() => {
-                setShow(!show);
-              }}>
-              Startsida
-            </NavLink>
-            <NavLink
-              to='/boka-resa'
-              onClick={() => {
-                setShow(!show);
-              }}>
-              Boka resa
-            </NavLink>
-            <NavLink
-              to='/boka-upphamtning'
-              onClick={() => {
-                setShow(!show);
-              }}>
-              Boka upphämtning
-            </NavLink>
-            <NavLink
-              to='/lista-resor'
-              onClick={() => {
-                setShow(!show);
-              }}>
-              Lista resor
-            </NavLink>
-            <NavLink
-              to='/lista-upphamtningar'
-              onClick={() => {
-                setShow(!show);
-              }}>
-              Lista upphämtningar
-            </NavLink>
+          <div
+            id='myDropdown'
+            className='dropdown-content'
+            onClick={() => {
+              setShow(!show);
+            }}>
+            <ListMenu items={pages} />
           </div>
         )}
       </div>
       <div id='menu'>
-        <NavLink to='/'>Startsida</NavLink>
-        <NavLink to='/boka-resa'>Boka resa</NavLink>
-        <NavLink to='/boka-upphamtning'>Boka upphämtning</NavLink>
-        <NavLink to='/lista-resor'>Lista resor</NavLink>
-        <NavLink to='/lista-upphamtningar'>Lista upphämtningar</NavLink>
+        <ListMenu items={pages} />
       </div>
     </>
   );

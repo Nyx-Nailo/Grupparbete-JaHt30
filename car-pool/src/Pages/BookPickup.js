@@ -19,6 +19,8 @@ const BookPickup = () => {
     misc: '',
   });
 
+  const [show, setShow] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -29,7 +31,7 @@ const BookPickup = () => {
     } else {
       localStorage.setItem('pickups', JSON.stringify([values]));
     }
-      window.location = '/lista-upphamtningar';
+    window.location = '/lista-upphamtningar';
   };
 
   const onChange = (e) => {
@@ -51,44 +53,15 @@ const BookPickup = () => {
 
   let currentDate = new Date().toJSON().slice(0, 16);
 
-  let divHide = {
-    display: 'none',
-  };
-
   if (values.traveldate === '') {
     values.traveldate = currentDate;
-  }
-
-  const useToggle = (initialState) => {
-    const [toggleValue, setToggleValue] = useState(initialState);
-
-    const toggler = () => {
-      setToggleValue(!toggleValue);
-    };
-
-    return [toggleValue, toggler];
-  };
-
-  const [toggle, setToggle] = useToggle();
-
-  let field = false;
-
-  if (toggle) {
-    divHide = {};
-    field = true;
   }
 
   return (
     <div id='BookTravel'>
       <h1>Boka upphämtning</h1>
       <form onSubmit={handleSubmit}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'auto 1fr',
-            gridColumnGap: '15px',
-            gridRowGap: '5px',
-          }}>
+        <div>
           <div>
             <label htmlFor='firstname'>Förnamn</label>
           </div>
@@ -209,32 +182,41 @@ const BookPickup = () => {
             <label htmlFor='moretravels'>Upprepande resa?</label>
           </div>
           <div>
-            <input type='checkbox' name='moretravels' onChange={onChange} onClick={setToggle} />
-          </div>
-          <div style={divHide}>
-            <label htmlFor='moretravelsdatestart'>Datum för avgång</label>
-          </div>
-          <div style={divHide}>
             <input
-              type='datetime-local'
-              name='moretravelsdatestart'
-              min={values.traveldate}
-              required={field}
+              type='checkbox'
+              name='moretravels'
               onChange={onChange}
+              onClick={() => setShow(!show)}
             />
           </div>
-          <div style={divHide}>
-            <label htmlFor='moretravelsdateend'>Datum för sista dagen</label>
-          </div>
-          <div style={divHide}>
-            <input
-              type='date'
-              name='moretravelsdateend'
-              min={values.moretravelsdatestart.slice(0, 10)}
-              required={field}
-              onChange={onChange}
-            />
-          </div>
+          {show && (
+            <>
+              <div>
+                <label htmlFor='moretravelsdatestart'>Datum för avgång</label>
+              </div>
+              <div>
+                <input
+                  type='datetime-local'
+                  name='moretravelsdatestart'
+                  min={values.traveldate}
+                  required
+                  onChange={onChange}
+                />
+              </div>
+              <div>
+                <label htmlFor='moretravelsdateend'>Datum för sista dagen</label>
+              </div>
+              <div>
+                <input
+                  type='date'
+                  name='moretravelsdateend'
+                  min={values.moretravelsdatestart.slice(0, 10)}
+                  required
+                  onChange={onChange}
+                />
+              </div>
+            </>
+          )}
           <div>
             <label>Övrig information</label>
           </div>
