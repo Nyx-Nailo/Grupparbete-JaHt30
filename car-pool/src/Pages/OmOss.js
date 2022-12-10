@@ -41,7 +41,7 @@ function OmOss() {
         <br></br>
         <div id="Links">
            <a href="https://www.instagram.com/" ><img width ="5%" src="../insta.png"></img></a>
-           <a href="facebook.com" ><img width ="5%" src="../fb.png"></img></a>
+           <a href="https://www.facebook.com" ><img width ="5%" src="../fb.png"></img></a>
            <a href="https://se.linkedin.com/" ><img width ="5%" src="../link.png"></img></a>
         </div>
         <br></br>
