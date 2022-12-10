@@ -13,7 +13,10 @@ function ListMenu({ items }) {
   return (
     <>
       {items.map((item, index) => (
-        <NavLink key={index} to={item.url}>
+        <NavLink
+          key={index}
+          to={item.url}
+          style={({ isActive }) => (isActive ? { fontWeight: 'bold' } : { fontWeight: 'normal' })}>
           {item.label}
         </NavLink>
       ))}
