@@ -8,6 +8,7 @@ import BookTravel from './Pages/BookTravel.js';
 import BookPickup from './Pages/BookPickup.js';
 import ListBookPickup from './Pages/ListBookPickup';
 import ListBookTravel from './Pages/ListBookTravel';
+import OmOss from './Pages/OmOss';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path='/boka-upphamtning' element={<BookPickup />} />
             <Route path='/lista-resor' element={<ListBookTravel />} />
             <Route path='/lista-upphamtningar' element={<ListBookPickup />} />
+            <Route path='/OmOss' element={<OmOss/>} />
           </Route>
         </Routes>
       </Router>

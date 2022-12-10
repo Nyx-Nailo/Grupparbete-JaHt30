@@ -236,3 +236,41 @@ div#Main > div#BookTravel > form > div > div > div.error {
     display: none;
   }
 }
+div#Main > div#container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+div#Main > div#container > div#flex-item1{
+  width: 620px;
+  margin: 10px;
+  border: solid 0.5px;
+  border-radius: 4px;
+}
+div#Main > div#container > div#flex-item2{
+  width: 620px;
+  margin: 10px;
+  border: solid 0.5px;
+  border-radius: 4px
+}
+div#Main > div#container > div#flex-item3{
+  width: 620px;
+  margin: 10px;
+  border: solid 0.5px;
+  border-radius: 4px
+}
+div#Main > div#container > div#flex-item3 > div#container{
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr ;
+  column-gap: 30px;
+}
+div#Main > div#container > div#flex-item3 > div#container2{
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr ;
+  column-gap: 30px;
+}
