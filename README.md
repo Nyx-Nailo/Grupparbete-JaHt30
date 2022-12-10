@@ -10,30 +10,10 @@ Main - React Routes
 
 
 
-Start sida:
-   * Lista resor och upphämtningar
-   * Visa information från bokningarna
+Start sida
 
+Bokningssidor för planerad resa eller önskad upphämtning (2 sidor)
+  * Formulär att fylla i information
 
-Boka Resa sida:
-   * Kontakt information
-   * Start / Slut ort
-   * Start tid för resa
-   * Antal lediga platser
-   * Allergier
-   * Ta med djur
-   * Ersättning
-   * Extra chaufför
-   * Upprepande resa
-   
-
-Boka Upphämtning sida:
-   * Kontakt information
-   * Upphämtnings ort
-   * Start tid för resa
-   * Hur många ska åka med
-   * Allergier
-   * Ta med djur
-   * Ersättning
-   * Extra chaufför
-   * Upprepande resa
+Lista planerade resor eller önskade upphämtningar (2 sidor)
+  * Lista med specifik resa på 2 olika sidor
