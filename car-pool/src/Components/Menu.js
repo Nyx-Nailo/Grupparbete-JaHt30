@@ -33,7 +33,7 @@ function Menu() {
     { label: 'Boka upphämtning', url: '/boka-upphamtning' },
     { label: 'Lista resor', url: '/lista-resor' },
     { label: 'Lista upphämtningar', url: '/lista-upphamtningar' },
-    { label: 'OmOss', url: '/OmOss' },
+    { label: 'Om oss', url: '/OmOss' },
   ];
 
   return (

@@ -17,6 +17,10 @@ body {
   overflow-y: scroll;
 }
 
+p {
+  line-height: 1.4rem;
+}
+
 div#root {
   margin-top: 2rem;
   max-width: 100%;
@@ -90,7 +94,6 @@ div#Main h1 {
   margin-bottom: 1rem;
 }
 div#Main > div > p {
-  line-height: 1.4rem;
   text-align: justify;
 }
 div#Main > div > p:not(:last-child) {
@@ -165,7 +168,39 @@ div#Main > div#BookTravel > form > div > div > div.error {
   margin-bottom: 0.4rem;
 }
 
-@media (width < 900px) {
+div#Main > div#container > div > h1 {
+  margin-bottom: 1rem;
+}
+div#Main > div#container > div > h2 {
+  margin-bottom: 0.5rem;
+}
+div#Main > div#container > div > p {
+  text-align: justify;
+}
+div#Main > div#container > div:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+div#Main > div#container > div#flex-item3 > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div#Main > div#container > div#flex-item3 > div > a > img {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+div#Main > div#container > div#flex-item3 > div > a > img:not(:last-child) {
+  margin-left: 3rem;
+}
+div#Main > div#container > div#flex-item3 > div > a > img {
+  width: 2rem;
+  margin-right: 1rem;
+}
+div#Main > div#container > div#flex-item3 > div > a:hover {
+  opacity: 0.5;
+}
+
+@media (width < 1024px) {
   div#Main > div#listing > div > div#listGrid,
   div#Main > div#BookTravel > form > div {
     display: block;
@@ -231,46 +266,8 @@ div#Main > div#BookTravel > form > div > div > div.error {
     width: 98vw;
   }
 }
-@media (width >= 900px) {
+@media (width >= 1024px) {
   div#dropdown {
     display: none;
   }
-}
-div#Main > div#container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-div#Main > div#container > div#flex-item1{
-  width: 620px;
-  margin: 10px;
-  border: solid 0.5px;
-  border-radius: 4px;
-}
-div#Main > div#container > div#flex-item2{
-  width: 620px;
-  margin: 10px;
-  border: solid 0.5px;
-  border-radius: 4px
-}
-div#Main > div#container > div#flex-item3{
-  width: 620px;
-  margin: 10px;
-  border: solid 0.5px;
-  border-radius: 4px
-}
-div#Main > div#container > div#flex-item3 > div#container{
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 1fr 1fr ;
-  column-gap: 30px;
-}
-div#Main > div#container > div#flex-item3 > div#container2{
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 1fr 1fr ;
-  column-gap: 30px;
 }
