@@ -17,10 +17,9 @@ function ListBookPickup({ storageItem }) {
     extradriver: 'Kan du vara chaufför',
     moretravels: 'Upprepande resa',
     moretravelsdatestart: 'Datum för avgång',
-    moretravelsdateend: 'Datum för sista dagen',
+    moretravelsdateend: 'Datum för sista resan',
     startcity: 'Utgångs ort',
     endcity: 'Destinations ort',
-    pickupcity: 'Upphämtnings ort',
     misc: 'Övrig information',
   };
 
@@ -88,7 +87,7 @@ function ListBookPickup({ storageItem }) {
               <Div
                 formField={formFields[keyValue]}
                 value={
-                  keyValue === 'moretravelsdatestart' || keyValue === 'traveldate'
+                  keyValue === 'traveldate'
                     ? props.booking[keyValue].replace('T', ' ')
                     : props.booking[keyValue]
                 }
@@ -109,7 +108,11 @@ function ListBookPickup({ storageItem }) {
   };
 
   const Empty = () => {
-    return <h1>Det finns inga bokade {storageItem === 'travel' ? 'resor' : 'uphämtningar'}</h1>;
+    return (
+      <div id='nolist'>
+        <h1>Det finns inga bokade {storageItem === 'travel' ? 'resor' : 'upphämtningar'}...</h1>
+      </div>
+    );
   };
 
   return (

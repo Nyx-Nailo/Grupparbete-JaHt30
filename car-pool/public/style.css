@@ -138,7 +138,7 @@ div#Main > div#listing > div > div#listGrid {
 div#Main > div#listing > div > div#listGrid > div:nth-child(odd) {
   font-weight: bold;
 }
-div#Main > div#listing > div > div#listGrid > div:nth-child(even) {
+div#Main > div#listing > div > div#listGrid > div {
   padding: 0.2rem;
 }
 div#Main > div#listing > div > div#listGrid > div.listOrange {
@@ -149,6 +149,9 @@ div#Main > div#BookTravel > form > div {
   grid-template-columns: auto 1fr;
   grid-column-gap: 15px;
   grid-row-gap: 5px;
+}
+div#Main > div#listing > div#nolist > h1 {
+  margin-bottom: 0;
 }
 
 @media (width < 900px) {
