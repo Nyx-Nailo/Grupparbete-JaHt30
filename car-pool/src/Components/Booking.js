@@ -68,8 +68,14 @@ const Booking = (props) => {
               name='firstname'
               pattern="\b([A-ÖÀ-ÿ][-,a-ö. ']+[ ]*)"
               required
+              minlength='3'
               onChange={onChange}
             />
+            {values.firstname.length < 3 && values.firstname.length > 0 ? (
+              <div className='error'>Förnamn måste vara minst 3 bokstäver!</div>
+            ) : (
+              ''
+            )}
           </div>
           <div>
             <label htmlFor='lastname'>Efternamn</label>
@@ -81,8 +87,14 @@ const Booking = (props) => {
               name='lastname'
               pattern="\b([A-ÖÀ-ÿ][-,a-ö. ']+[ ]*)"
               required
+              minlength='3'
               onChange={onChange}
             />
+            {values.lastname.length < 3 && values.lastname.length > 0 ? (
+              <div className='error'>Efternamn måste vara minst 3 bokstäver!</div>
+            ) : (
+              ''
+            )}
           </div>
           <div>
             <label htmlFor='phonenr'>Mobil nummer</label>
@@ -94,9 +106,15 @@ const Booking = (props) => {
               name='phonenr'
               pattern='[0-9]{3}-[0-9]{7}'
               title='070-1234567'
+              maxLength='11'
               required
               onChange={onChange}
             />
+            {values.phonenr.length < 11 && values.phonenr.length > 0 ? (
+              <div className='error'>Mobil nummer måste vara 8 tecken! (070-1234567)</div>
+            ) : (
+              ''
+            )}
           </div>
           <div>
             <label htmlFor='email'>E-post adress</label>
@@ -110,6 +128,11 @@ const Booking = (props) => {
               required
               onChange={onChange}
             />
+            {!values.email.includes('@') && values.email.length > 0 ? (
+              <div className='error'>E-post adressen måste innehålla ett @</div>
+            ) : (
+              ''
+            )}
           </div>
           <div>
             <label htmlFor='startcity'>Utgångs ort</label>
@@ -120,9 +143,15 @@ const Booking = (props) => {
               placeholder='Utgångs ort'
               name='startcity'
               pattern='^[A-ZÅÄÖa-zåäö]+'
+              minlength='3'
               required
               onChange={onChange}
             />
+            {values.startcity.length < 3 && values.startcity.length > 0 ? (
+              <div className='error'>Utgångs ort måste vara minst 3 bokstäver!</div>
+            ) : (
+              ''
+            )}
           </div>
           <div>
             <label htmlFor='endcity'>Destinations ort</label>
@@ -133,9 +162,15 @@ const Booking = (props) => {
               placeholder='Destinations ort'
               name='endcity'
               pattern='^[A-ZÅÄÖa-zåäö]+'
+              minlength='3'
               required
               onChange={onChange}
             />
+            {values.endcity.length < 3 && values.endcity.length > 0 ? (
+              <div className='error'>Destinations ort måste vara minst 3 bokstäver!</div>
+            ) : (
+              ''
+            )}
           </div>
           <div>
             <label htmlFor='traveldate'>Datum för resa</label>
@@ -144,7 +179,7 @@ const Booking = (props) => {
             <input
               type='datetime-local'
               name='traveldate'
-              value={values.traveldate}
+              value={values.traveldate ? values.traveldate : currentDate}
               min={currentDate}
               required
               onChange={onChange}
@@ -194,6 +229,11 @@ const Booking = (props) => {
                 <input
                   type='date'
                   name='moretravelsdateend'
+                  value={
+                    values.moretravelsdateend > values.traveldate
+                      ? values.moretravelsdateend
+                      : values.traveldate.slice(0, 10)
+                  }
                   min={values.traveldate.slice(0, 10)}
                   required
                   onChange={onChange}

@@ -89,6 +89,10 @@ div#Main {
 div#Main h1 {
   margin-bottom: 1rem;
 }
+div#Main > div > p {
+  line-height: 1.4rem;
+  text-align: justify;
+}
 div#Main > div > p:not(:last-child) {
   margin-bottom: 1rem;
 }
@@ -152,6 +156,13 @@ div#Main > div#BookTravel > form > div {
 }
 div#Main > div#listing > div#nolist > h1 {
   margin-bottom: 0;
+}
+
+div#Main > div#BookTravel > form > div > div > div.error {
+  font-size: 0.9rem;
+  color: rgb(255, 164, 164);
+  text-shadow: 1px 1px 0 #333;
+  margin-bottom: 0.4rem;
 }
 
 @media (width < 900px) {
