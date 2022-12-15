@@ -25,11 +25,7 @@ function ListBookPickup({ storageItem }) {
 
   const List = (props) => {
     const RemoveList = (num) => {
-      if (
-        window.confirm(
-          'Vill du boka ' + (storageItem === 'travel' ? 'Resa ' : 'Upphämtning ') + (num + 1)
-        )
-      ) {
+      if (window.confirm('Vill du boka ' + (storageItem === 'travel' ? 'Resa ' : 'Upphämtning ') + (num + 1))) {
         stateList.splice(num, 1);
         localStorage.setItem(storageItem, JSON.stringify(stateList));
         setUpdateList(JSON.parse(localStorage.getItem(storageItem)));
@@ -51,7 +47,6 @@ function ListBookPickup({ storageItem }) {
       }
 
       if (props.formField === 'Allergier' && props.value !== '') {
-        console.log(props.value);
         return (
           <>
             <div>{props.formField}</div>
@@ -83,17 +78,7 @@ function ListBookPickup({ storageItem }) {
         </h3>
         <div id='listGrid'>
           {Object.keys(props.booking).map((keyValue, index) => {
-            return (
-              <Div
-                formField={formFields[keyValue]}
-                value={
-                  keyValue === 'traveldate'
-                    ? props.booking[keyValue].replace('T', ' ')
-                    : props.booking[keyValue]
-                }
-                key={Object.keys(props.booking)[index] + props.num}
-              />
-            );
+            return <Div formField={formFields[keyValue]} value={keyValue === 'traveldate' ? props.booking[keyValue].replace('T', ' ') : props.booking[keyValue]} key={Object.keys(props.booking)[index] + props.num} />;
           })}
         </div>
         <button
@@ -117,7 +102,7 @@ function ListBookPickup({ storageItem }) {
 
   return (
     <div id='listing'>
-      {JSON.parse(localStorage.getItem(storageItem)).length !== 0 ? (
+      {JSON.parse(localStorage.getItem(storageItem)) !== null && JSON.parse(localStorage.getItem(storageItem)).length !== 0 ? (
         stateList.map((listItem, index) => {
           return <List booking={listItem} num={index} key={listItem + index} />;
         })
